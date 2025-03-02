@@ -12,8 +12,8 @@ export default function Movies(){
         }
         fetchMovies();
     },[])
-    if(Movies.length ===0){
-        return <>Loading...</>
+    if(!Movies.length){
+        return <div className="fixed top-1/2 left-1/2">Loading...</div>
     }
     return (
         <div className="container mx-auto p-6">
