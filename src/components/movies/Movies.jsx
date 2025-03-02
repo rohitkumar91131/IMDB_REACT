@@ -12,7 +12,7 @@ export default function Movies(){
         }
         fetchMovies();
     },[])
-    if(!Movies){
+    if(Movies.length === 0){
         return <div className="fixed top-1/2 left-1/2">Loading...</div>
     }
     return (
