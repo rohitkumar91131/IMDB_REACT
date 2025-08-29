@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useMovie } from "../../context/Movies";
 
 export default function Movies() {
-  const [Movies, setMovies] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const {allMovies, setAllMovies} = useMovie();
 
   useEffect(() => {
+
     async function fetchMovies() {
       try {
-        let res = await fetch("https://databasecollection.vercel.app/getmovies")
+        let res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/movies/getAll`)
         let data = await res.json()
-        setMovies(data)
+        setAllMovies(data.allMovies)
+        console.log(data)
       } catch (err) {
         console.error(err)
       } finally {
@@ -50,10 +53,10 @@ export default function Movies() {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="h-[100dvh] container mx-auto p-6 overflow-y-auto">
       <h1 className="text-2xl font-bold text-center mb-6">Movies</h1>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {Movies.map((movie) => (
+        {allMovies.length>0 && allMovies.map((movie) => (
           <Link to={movie._id}
             key={movie._id}
             className="bg-white shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 rounded-lg"

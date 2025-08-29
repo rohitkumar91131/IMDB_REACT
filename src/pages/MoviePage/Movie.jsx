@@ -11,10 +11,10 @@ export default function MovieDetails() {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await fetch(`https://databasecollection.vercel.app/getmovies/${id}`)
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/movies/${id}`)
         const data = await res.json()
         if (!data.success) throw new Error("Movie not found")
-        setMovie(data.data)
+        setMovie(data.movie)
       } catch (err) {
         setError(err.message)
       } finally {
@@ -23,7 +23,7 @@ export default function MovieDetails() {
     }
     fetchMovie()
   }, [id])
-
+ 
   if (loading) {
     return (
       <div className="h-[100dvh] w-[100dvw] flex items-center justify-center text-gray-600 text-lg">
@@ -34,10 +34,10 @@ export default function MovieDetails() {
 
   if (error) {
     return (
-      <div className="h-[100dvh] w-[100dvw] relative flex flex-col items-center justify-center text-center p-4">
+      <div className="h-[100dvh] w-[100dvw] relative flex flex-col items-center justify-center text-center p-4 ">
         <button
           onClick={() => navigate(-1)}
-          className="absolute top-4 left-4 px-4 py-2 rounded-lg bg-gray-800 text-white shadow hover:bg-gray-700"
+          className="absolute top-4 left-4 px-4 py-2 rounded-lg bg-gray-800 text-whiteLoading shadow hover:bg-gray-700"
         >
           ← Return
         </button>
@@ -61,7 +61,7 @@ export default function MovieDetails() {
       </button>
       <div className="flex flex-col md:flex-row gap-8 mt-10">
         <img
-          src={movie.poster}
+          src={movie?.poster}
           alt={movie.title}
           className="w-full md:w-72 rounded-lg shadow-md object-cover"
         />
