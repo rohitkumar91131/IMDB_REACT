@@ -1,8 +1,33 @@
-# React + Vite
+# 🎬 IMDb Clone (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern IMDb-inspired movie database web app built with **React 19, Vite, and TailwindCSS**.  
+It allows users to browse movies, view details, and navigate seamlessly with **React Router**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+
+- ⚡ **Fast development** with Vite + React 19  
+- 🎨 **Responsive UI** styled with TailwindCSS  
+- 🔗 **Routing & navigation** with React Router v7  
+- 🖼️ **Icon support** via Lucide React  
+- 🧹 **Linting** with ESLint + React plugins  
+
+---
+
+## 📦 Tech Stack
+
+- **Frontend Framework:** React 19 + Vite  
+- **Styling:** TailwindCSS  
+- **Routing:** React Router DOM v7  
+- **Icons:** Lucide React  
+- **Linting:** ESLint, React Hooks linting  
+
+---
+
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rohitkumar91131/imdb.git
+   cd imdb

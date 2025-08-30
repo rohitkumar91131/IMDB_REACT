@@ -68,7 +68,7 @@ export default function Movies() {
                 className="w-full h-56 object-cover"
               />
               <span className="absolute top-2 right-2 bg-black text-white px-2 py-1 text-sm rounded-md">
-                {movie.year}
+              {new Date(movie.releaseDate).getFullYear()}
               </span>
             </div>
             <div className="p-4">
