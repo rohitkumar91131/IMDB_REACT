@@ -13,11 +13,12 @@ export default function Movies() {
         let res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/movies/getAll`)
         let data = await res.json()
         setAllMovies(data.allMovies)
-        console.log(data)
+        console.log(data);
+        if(data.allMovies.length !== 0){
+          setLoading(false)
+        }
       } catch (err) {
         console.error(err)
-      } finally {
-        setLoading(false)
       }
     }
     fetchMovies()
